@@ -15,7 +15,7 @@ type FormData = {
 
 
 const BuyToken = () => {
-  const { register, handleSubmit, watch, formState: { errors } } = useForm<FormData>();
+  const { register, handleSubmit, watch, setValue, formState: { errors } } = useForm<FormData>();
   const { allowances, contracts } = useToken();
   const { orders, fetchOrders, selectedOrder } = useOrders();
   const watchAmount = watch("amount");
@@ -82,6 +82,7 @@ const BuyToken = () => {
       return;
     }
 
+    setValue("amount", 0);
     await fetchOrders();
   }
 

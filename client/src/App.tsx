@@ -3,11 +3,12 @@ import { WagmiConfig, createClient, configureChains, useAccount } from "wagmi";
 import { polygonMumbai, polygon } from "wagmi/chains"
 import { publicProvider } from "wagmi/providers/public";
 import { MetaMaskConnector } from "wagmi/connectors/metaMask";
-
+import { Toaster } from 'react-hot-toast';
 import Navigation from './components/Navigation';
 import SellToken from './components/SellToken';
 import ListOrders from './components/ListOrders';
 import BuyToken from './components/BuyToken';
+import RebaseToken from './components/RebaseToken';
 import { TokenProvider } from './context/tokenContext';
 import { OrderProvider } from './context/orderContext';
 
@@ -42,6 +43,7 @@ function App() {
                   <div className='w-1/2'>
                     <SellToken />
                     <BuyToken />
+                    <RebaseToken />
                   </div>
                 </div>
               ) : (
@@ -54,6 +56,7 @@ function App() {
           </div>
         </OrderProvider>
       </TokenProvider>
+      <Toaster />
     </WagmiConfig>
 
   );

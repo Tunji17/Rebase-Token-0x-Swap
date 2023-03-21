@@ -17,6 +17,12 @@ const config: HardhatUserConfig = {
       gasPrice: "auto",
       accounts: process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
     },
+    polygon: {
+      url: `https://polygon-mainnet.g.alchemy.com/v2/${process.env.ALCHEMY_SECRET}`,
+      chainId: 137,
+      gasPrice: "auto",
+      accounts: process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    },
   },
 };
 
